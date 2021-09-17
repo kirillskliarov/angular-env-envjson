@@ -5,7 +5,7 @@ import { AppModule } from './app/app.module';
 import {Environment} from "./app/core/interfaces/environment";
 import {envStorage} from "./env-storage";
 
-(async function () {
+(async function() {
   try {
     const response: Response = await fetch('/env.json');
     const env: Promise<Environment> = await response.json();

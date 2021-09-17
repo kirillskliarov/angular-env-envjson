@@ -1,4 +1,6 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ENVIRONMENT_TOKEN} from "./core/tokens/environment-token";
+import {Environment} from "./core/interfaces/environment";
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  title = 'envjs';
+
+  constructor(
+    @Inject(ENVIRONMENT_TOKEN) public env: Environment,
+  ) {
+  }
 }

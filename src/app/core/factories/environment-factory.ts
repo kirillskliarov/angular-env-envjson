@@ -1,12 +1,9 @@
-import * as _ from 'lodash';
 import {Environment} from "../interfaces/environment";
+import {envStorage} from "../../../env-storage";
 
-declare global {
-  interface Window {
-    __env: Environment;
-  }
-}
+export function environmentFactory(): Environment {
+  const env: Environment = envStorage.getValue() as Environment;
+  envStorage.complete();
 
-export function environmentFactory(global: Window) {
-  return _.cloneDeep(global.__env);
+  return env;
 }

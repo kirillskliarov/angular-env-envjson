@@ -39,7 +39,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/env.js"
+              "src/env.json"
             ],
             "styles": [
               "src/styles.scss"

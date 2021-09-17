@@ -8,11 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "static-server": "static-server",
-    "static": "cd dist/envjson && static-server --port=9081"
+    "static": "cd dist/envjson && static-server --port=9082"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.2.0",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",

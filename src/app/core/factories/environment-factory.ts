@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import {Environment} from "../interfaces/environment";
 
 declare global {
@@ -7,5 +8,5 @@ declare global {
 }
 
 export function environmentFactory(global: Window) {
-  return global.__env;
+  return _.cloneDeep(global.__env);
 }

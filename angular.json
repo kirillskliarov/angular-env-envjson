@@ -1,12 +1,19 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "changeDetection": "OnPush"
+      }
+    }
+  },
   "version": 1,
   "cli": {
     "packageManager": "npm"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "envjs": {
+    "envjson": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +30,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/envjs",
+            "outputPath": "dist/envjson",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,7 +38,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/env.json"
             ],
             "styles": [
               "src/styles.scss"
@@ -52,12 +60,6 @@
                   "maximumError": "4kb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "outputHashing": "all"
             },
             "development": {
@@ -75,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "envjs:build:production"
+              "browserTarget": "envjson:build:production"
             },
             "development": {
-              "browserTarget": "envjs:build:development"
+              "browserTarget": "envjson:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "envjs:build"
+            "browserTarget": "envjson:build"
           }
         },
         "test": {
@@ -110,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "envjs"
+  "defaultProject": "envjson"
 }

@@ -2,11 +2,21 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import {Environment} from "./app/core/interfaces/environment";
+import {envStorage} from "./env-storage";
 
-if (environment.production) {
-  enableProdMode();
-}
+(async function() {
+  try {
+    const response: Response = await fetch('/env.json');
+    const env: Promise<Environment> = await response.json();
+    envStorage.next(await env);
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+    if ((await env).production) {
+      enableProdMode();
+    }
+
+    await platformBrowserDynamic().bootstrapModule(AppModule);
+  } catch (err) {
+    console.error(err);
+  }
+})();

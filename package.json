@@ -1,14 +1,14 @@
 {
-  "name": "envjs",
+  "name": "envjson",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port=4202",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "static-server": "static-server",
-    "static": "cd dist/envjs && static-server"
+    "static": "cd dist/envjson && static-server --port=9081"
   },
   "private": true,
   "dependencies": {

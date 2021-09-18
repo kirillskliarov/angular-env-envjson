@@ -1,6 +1,12 @@
-<p>
-  apiKey: {{env.apiKey}}
-</p>
-<p>
-  Prod? {{env.production ? 'Yes' : 'No'}}
-</p>
+<div class="env_container">
+  <div class="env_key">apiKey: </div>
+  <div class="env-value env-value_apiKey">{{env.apiKey}}</div>
+</div>
+<div>
+  <div class="env_key">production: </div>
+  <div class="env-value env-value_production">{{env.production}}</div>
+</div>
+
+<div *ngIf="!env.production" class="development-mode-message">
+  Application is running in development mode
+</div>

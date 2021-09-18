@@ -11,7 +11,7 @@ import {Environment} from "./core/interfaces/environment";
 export class AppComponent {
 
   constructor(
-    @Inject(ENVIRONMENT_TOKEN) public env: Environment,
+    @Inject(ENVIRONMENT_TOKEN) public readonly env: Environment,
   ) {
   }
 }

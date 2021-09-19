@@ -3,13 +3,13 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { Environment } from "./app/core/interfaces/environment";
-import { EnvStorageService } from "./app/core/services/env-storage.service";
+import { Env } from "./app/core/namespaces/Env";
 
 (async function() {
   try {
     const response: Response = await fetch('/env.json');
     const env: Promise<Environment> = await response.json();
-    EnvStorageService.setEnv(await env);
+    Env.environment = (await env);
 
     if ((await env).production) {
       enableProdMode();

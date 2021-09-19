@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppComponent} from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import {ENVIRONMENT_TOKEN} from "./core/tokens/environment-token";
-import {environmentFactory} from "./core/factories/environment-factory";
+import { AppComponent } from './app.component';
+import { HttpClientModule } from "@angular/common/http";
+import { EnvStorageService } from "./core/services/env-storage.service";
+import { ENVIRONMENT_TOKEN } from "./core/tokens/environment-token";
 
 @NgModule({
   declarations: [
@@ -14,14 +14,16 @@ import {environmentFactory} from "./core/factories/environment-factory";
     BrowserModule,
     HttpClientModule,
   ],
+  bootstrap: [AppComponent],
   providers: [
     {
       provide: ENVIRONMENT_TOKEN,
-      useFactory: environmentFactory,
-      deps: [],
+      useFactory: (envStorageService: EnvStorageService) => {
+        return envStorageService.getEnv();
+      },
+      deps: [EnvStorageService],
     },
   ],
-  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

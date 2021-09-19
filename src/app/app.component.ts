@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
-import {ENVIRONMENT_TOKEN} from "./core/tokens/environment-token";
-import {Environment} from "./core/interfaces/environment";
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ENVIRONMENT_TOKEN } from "./core/tokens/environment-token";
+import { Environment } from "./core/interfaces/environment";
 
 @Component({
   selector: 'app-root',

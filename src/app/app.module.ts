@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -16,16 +16,6 @@ import { ENVIRONMENT_TOKEN } from "./core/tokens/environment-token";
   ],
   bootstrap: [AppComponent],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      multi: true,
-      useFactory: (envStorageService: EnvStorageService) => {
-        return () => {
-          return envStorageService.init();
-        };
-      },
-      deps: [EnvStorageService],
-    },
     {
       provide: ENVIRONMENT_TOKEN,
       useFactory: (envStorageService: EnvStorageService) => {

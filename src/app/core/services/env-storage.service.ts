@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Environment } from "../interfaces/environment";
-import { ReplaySubject } from "rxjs";
+import { Observable, ReplaySubject } from "rxjs";
 import { take, tap } from "rxjs/operators";
 
 @Injectable({
@@ -17,14 +17,15 @@ export class EnvStorageService {
   constructor() {
   }
 
-  public init(): Promise<Environment> {
-    const result: Promise<Environment> = EnvStorageService.envBuffer$
+  public init(): Observable<Environment> {
+    const result: Observable<Environment> = EnvStorageService.envBuffer$
       .asObservable()
       .pipe(
         take(1),
         tap((env: Environment) => EnvStorageService.env = env),
       )
-      .toPromise();
+      // .toPromise()
+    ;
     EnvStorageService.envBuffer$.complete();
 
     return result;

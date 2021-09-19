@@ -10,7 +10,8 @@
     "test:coverage": "ng test --no-watch --code-coverage --source-map --browsers=ChromeHeadless",
     "static-server": "static-server",
     "static": "cd dist/envjson && static-server --port=9082",
-    "build:static": "npm run build && npm run static",
+    "run:static": "npm run build && npm run static",
+    "run:static:watch": "npm run watch && npm run static",
     "lint": "ng lint"
   },
   "private": true,

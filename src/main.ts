@@ -1,9 +1,9 @@
-import {enableProdMode} from '@angular/core';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import {AppModule} from './app/app.module';
-import {Environment} from "./app/core/interfaces/environment";
-import {envStorage} from "./env-storage";
+import { AppModule } from './app/app.module';
+import { Environment } from "./app/core/interfaces/environment";
+import { envStorage } from "./env-storage";
 
 (async function() {
   try {

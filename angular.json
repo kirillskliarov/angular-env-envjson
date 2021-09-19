@@ -9,8 +9,7 @@
   },
   "version": 1,
   "cli": {
-    "packageManager": "npm",
-    "defaultCollection": "@angular-eslint/schematics"
+    "packageManager": "npm"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -108,15 +107,6 @@
               "src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
           }
         }
       }

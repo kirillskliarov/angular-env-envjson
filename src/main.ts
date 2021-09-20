@@ -8,10 +8,10 @@ import { Env } from "./app/core/namespaces/Env";
 (async () => {
   try {
     const response: Response = await fetch('/env.json');
-    const env: Promise<Environment> = await response.json();
-    Env.environment = (await env);
+    const env: Environment = await response.json();
+    Env.environment = env;
 
-    if ((await env).production) {
+    if (env.production) {
       enableProdMode();
     }
 
